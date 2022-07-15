@@ -12,6 +12,7 @@ class Test(unittest.TestCase):
         # envia uma requisicao GET para a URL
         print ('test_requisicao')
         result = self.app.get('/')
+        print (result.status_code)
 
         # compara o status da requisicao (precisa ser igual a 200)
         self.assertEqual(result.status_code, 200) 
@@ -20,7 +21,7 @@ class Test(unittest.TestCase):
         # envia uma requisicao GET para a URL
         print ('test_conteudo')
         result = self.app.get('/') 
-
+        print (result.data.decode())
         # verifica o retorno do conteudo da pagina
         self.assertRegex(result.data.decode(), "Escreva uma Mensagem para o Cabecalho da Pagina.")
 
