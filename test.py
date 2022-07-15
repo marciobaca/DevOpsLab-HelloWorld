@@ -5,10 +5,12 @@ class Test(unittest.TestCase):
     
     def setUp(self):
         # cria uma instancia do unittest, precisa do nome "setUp"
+        print ('setUp')
         self.app = app.test_client()
 
     def test_requisicao(self):
         # envia uma requisicao GET para a URL
+        print ('test_requisicao')
         result = self.app.get('/')
 
         # compara o status da requisicao (precisa ser igual a 200)
@@ -16,6 +18,7 @@ class Test(unittest.TestCase):
 
     def test_conteudo(self):
         # envia uma requisicao GET para a URL
+        print ('test_conteudo')
         result = self.app.get('/') 
 
         # verifica o retorno do conteudo da pagina
